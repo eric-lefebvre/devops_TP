@@ -1,0 +1,57 @@
+/* Style général */
+body {
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: #12121d;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #ffcc00;
+}
+
+/* Container des cartes */
+.champion-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+/* Carte de chaque champion */
+.champion-card {
+    background-color: #2a2a3d;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    overflow: hidden;
+    width: 180px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.champion-card:hover {
+    transform: scale(1.05);
+}
+
+.champion-card img {
+    width: 100%;
+    height: auto;
+}
+
+.champion-card h2 {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: #ffcc00;
+}
