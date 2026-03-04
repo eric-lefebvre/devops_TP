@@ -1,0 +1,36 @@
+name: CI/CD Pipeline PHP Docker
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # BUILD + START DOCKER COMPOSE
+      - name: Build et démarrer docker-compose
+        run: docker compose up -d --build
+
+      # ATTENTE MYSQL
+      - name: Attendre que MySQL démarre
+        run: sleep 20
+
+      # VERIFICATION CONTAINERS
+      - name: Vérifier les conteneurs
+        run: docker ps
+
+      # LINT PHP
+      - name: Vérifier syntaxe PHP
+        run: |
+          docker exec php_apache_app find /var/www/html -name "*.php" -exec php -l {} \;
+
+      # STOP CONTAINERS
+      - name: Stop containers
+        run: docker compose down
