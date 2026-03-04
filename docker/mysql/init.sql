@@ -211,9 +211,30 @@ INSERT INTO draft (date_draft, ligue, team_blueside, team_redside) VALUES
 -- =========================
 -- Picks exemple (draft id = 1)
 -- =========================
+-- Draft : 2025-03-01 18:00:00, LEC, G2 Esports vs Fnatic
 INSERT INTO pick (champion_id, draft_id, slot) VALUES
-(1, 1, 'B1'),
-(2, 1, 'R1'),
-(3, 1, 'B2'),
-(4, 1, 'R2'),
-(5, 1, 'B3');
+((SELECT id FROM champion WHERE nom = 'Ahri'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'B1'),
+((SELECT id FROM champion WHERE nom = 'Lee Sin'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'B2'),
+((SELECT id FROM champion WHERE nom = 'Jinx'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'B3'),
+((SELECT id FROM champion WHERE nom = 'Garen'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'B4'),
+((SELECT id FROM champion WHERE nom = 'Thresh'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'B5'),
+
+((SELECT id FROM champion WHERE nom = 'Akali'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'R1'),
+((SELECT id FROM champion WHERE nom = 'Caitlyn'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'R2'),
+((SELECT id FROM champion WHERE nom = 'Darius'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'R3'),
+((SELECT id FROM champion WHERE nom = 'Ezreal'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'R4'),
+((SELECT id FROM champion WHERE nom = 'Fiora'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'R5'),
+
+-- Bans Blueside
+((SELECT id FROM champion WHERE nom = 'Galio'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'BB1'),
+((SELECT id FROM champion WHERE nom = 'Hecarim'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'BB2'),
+((SELECT id FROM champion WHERE nom = 'Irelia'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'BB3'),
+((SELECT id FROM champion WHERE nom = 'Janna'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'BB4'),
+((SELECT id FROM champion WHERE nom = 'Karthus'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'BB5'),
+
+-- Bans Redside
+((SELECT id FROM champion WHERE nom = 'Leona'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'RB1'),
+((SELECT id FROM champion WHERE nom = 'Malphite'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'RB2'),
+((SELECT id FROM champion WHERE nom = 'Nautilus'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'RB3'),
+((SELECT id FROM champion WHERE nom = 'Olaf'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'RB4'),
+((SELECT id FROM champion WHERE nom = 'Pantheon'), (SELECT id FROM draft WHERE date_draft = '2025-03-01 18:00:00' AND ligue='LEC'), 'RB5');

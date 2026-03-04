@@ -1,8 +1,8 @@
-/* Style général */
+/* Global */
 body {
     background-color: #1e1e2f;
-    color: #f0f0f0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -10,48 +10,143 @@ body {
 /* Header */
 header {
     text-align: center;
-    padding: 2rem;
-    background-color: #12121d;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    padding: 20px;
+    background-color: #111;
+    border-bottom: 2px solid #333;
 }
 
 header h1 {
     margin: 0;
     font-size: 2rem;
-    color: #ffcc00;
+    color: #3da4ff;
 }
 
-/* Container des cartes */
-.champion-container {
+/* Main container */
+main {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
-/* Carte de chaque champion */
-.champion-card {
-    background-color: #2a2a3d;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    overflow: hidden;
-    width: 180px;
+/* Bans */
+.bans-row {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+.team-bans {
+    display: flex;
+    gap: 10px;
+}
+
+.ban-card img {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    border: 2px solid #888;
+    object-fit: cover;
+}
+
+/* Picks */
+.picks-row {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    gap: 20px;
+}
+
+.team-picks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Pick / Ban card */
+.pick-card, .ban-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    transition: transform 0.2s;
 }
 
-.champion-card:hover {
-    transform: scale(1.05);
+.pick-card img {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: all 0.3s ease;
 }
 
-.champion-card img {
-    width: 100%;
-    height: auto;
+.blue-team .pick-card img {
+    border: 2px solid #3da4ff;
 }
 
-.champion-card h2 {
-    padding: 0.5rem;
-    font-size: 1.2rem;
-    color: #ffcc00;
+.red-team .pick-card img {
+    border: 2px solid #ff3d3d;
+}
+
+.pick-card span {
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+/* Inputs pour deviner */
+.guess-input {
+    margin-top: 5px;
+    padding: 3px;
+    width: 80px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #2a2a3d;
+    color: #fff;
+}
+
+.guess-btn {
+    margin-left: 5px;
+    padding: 3px 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3da4ff;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.guess-btn:hover {
+    background-color: #2a82d7;
+}
+
+.feedback {
+    margin-top: 5px;
+    font-weight: bold;
+    color: yellow;
+    min-height: 18px;
+}
+
+/* Titres */
+h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .bans-row, .picks-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .team-picks {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .pick-card, .ban-card {
+        margin: 5px;
+    }
 }
