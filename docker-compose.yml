@@ -5,9 +5,9 @@ services:
     build: .
     container_name: php_apache_app
     ports:
-      - "8080:80"   # Redirige le port 80 du conteneur vers le port 8080 de l'hôte
+      - "8080:80"
     volumes:
-      - .:/var/www/html   # Synchronise le code local avec le conteneur
+      - .:/var/www/html
     depends_on:
       - db
 
@@ -24,6 +24,7 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+      - ./docker/mysql:/docker-entrypoint-initdb.d
 
 volumes:
   db_data:
